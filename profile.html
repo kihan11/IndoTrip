@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Saya — IndoTrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="IndoTrip — Beranda">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="12.4" stroke="currentColor" stroke-width="2.2" />
+          <path d="M21.6 10.4 18.2 18.2 10.4 21.6 13.8 13.8 21.6 10.4Z" fill="currentColor" />
+        </svg>
+        <span class="brand-name">Indo<span class="brand-trip">Trip</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="destinasi.html">Destinasi</a>
+        <a href="penginapan.html">Penginapan</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="btn-login">Masuk</a>
+        <a href="signup.html" class="btn-register">Daftar</a>
+        <a href="profile.html" class="btn-profile" aria-label="Profil">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21a8 8 0 0 1 16 0" />
+          </svg>
+        </a>
+      </div>
+
+      <button class="nav-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Buka menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="collapse mobile-nav" id="mobileNav">
+      <nav aria-label="Navigasi seluler">
+        <a href="destinasi.html">Destinasi</a>
+        <a href="penginapan.html">Penginapan</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="login.html" class="mobile-login">Masuk</a>
+        <a href="signup.html" class="mobile-login">Daftar</a>
+        <a href="profile.html" class="mobile-login">Profil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="profile-main" id="profileMain">
+
+    <div class="profile-container" id="profileContainer">
+      <section class="profile-identity" aria-label="Identitas traveller">
+        <div class="profile-avatar" id="profileInitials">TI</div>
+        <div class="profile-identity-text">
+          <h1 id="profileName">Traveller IndoTrip</h1>
+          <p id="profileEmail">traveller@indotrip.id</p>
+        </div>
+        <button type="button" class="profile-logout" id="logoutBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <path d="M16 17l5-5-5-5M21 12H9" />
+          </svg>
+          Keluar
+        </button>
+      </section>
+
+      <div class="profile-layout">
+        <aside class="profile-sidebar" aria-label="Menu profil">
+          <button type="button" class="profile-tab is-active" data-tab="wishlist">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.7-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8Z" />
+            </svg>
+            Wishlist Saya
+          </button>
+          <button type="button" class="profile-tab" data-tab="riwayat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 2.6-6.4L3 8" />
+              <path d="M3 3v5h5M12 7v5l3 2" />
+            </svg>
+            Riwayat Pemesanan
+          </button>
+          <button type="button" class="profile-tab" data-tab="pengaturan">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21h-4v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3.1 14H3v-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3.1V3h4v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v4h-.1a1.7 1.7 0 0 0-1.5 1Z" />
+            </svg>
+            Pengaturan Akun
+          </button>
+        </aside>
+
+        <section class="profile-content">
+
+          <div class="profile-panel" id="panel-wishlist">
+            <h2 class="profile-panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.7-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8Z" />
+              </svg>
+              Wishlist Saya
+            </h2>
+
+            <div id="wishlistContent"></div>
+          </div>
+
+          <div class="profile-panel" id="panel-riwayat" hidden>
+            <h2 class="profile-panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 2.6-6.4L3 8" />
+                <path d="M3 3v5h5M12 7v5l3 2" />
+              </svg>
+              Riwayat Pemesanan
+            </h2>
+
+            <div id="riwayatContent"></div>
+          </div>
+
+          <div class="profile-panel" id="panel-pengaturan" hidden>
+            <div class="settings-card">
+              <h2 class="settings-title">Pengaturan Akun</h2>
+              <p class="settings-sub">Data ini terhubung dengan nama dan email yang kamu isi waktu Sign Up.</p>
+
+              <form id="settingsForm" class="settings-form" novalidate>
+                <div class="settings-grid">
+                  <div class="auth-field">
+                    <label for="settingName">Nama Lengkap</label>
+                    <input id="settingName" type="text" placeholder="Traveller IndoTrip" />
+                  </div>
+                  <div class="auth-field">
+                    <label for="settingEmail">Email</label>
+                    <input id="settingEmail" type="email" placeholder="traveller@indotrip.id" />
+                  </div>
+                  <div class="auth-field">
+                    <label for="settingPhone">Nomor Telepon</label>
+                    <input id="settingPhone" type="tel" placeholder="08123456789" />
+                  </div>
+                  <div class="auth-field">
+                    <label for="settingCity">Domisili</label>
+                    <input id="settingCity" type="text" placeholder="Cth: Jakarta" />
+                  </div>
+                </div>
+
+                <p class="auth-message" id="profileError" role="alert" hidden></p>
+
+                <p class="settings-saved" id="profileSaved" role="status" hidden>Profil berhasil diperbarui.</p>
+
+                <div class="settings-actions">
+                  <button type="submit" class="auth-primary-btn settings-save">Simpan Perubahan</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div>
+
+    <div class="auth-stage" id="logoutStage">
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="logoutTitle">
+        <div class="dialog-top dialog-top--danger">
+          <div class="dialog-icon dialog-icon--danger">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <path d="M16 17l5-5-5-5M21 12H9" />
+            </svg>
+          </div>
+          <h2 id="logoutTitle">Keluar dari IndoTrip?</h2>
+          <p>Sesi Anda akan diakhiri. Anda bisa masuk kembali kapan saja menggunakan email dan kata sandi yang terdaftar.</p>
+        </div>
+        <div class="dialog-bottom">
+          <button type="button" class="dialog-btn dialog-btn--danger" id="confirmLogoutBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <path d="M16 17l5-5-5-5M21 12H9" />
+            </svg>
+            Ya, Keluar Sekarang
+          </button>
+          <button type="button" class="dialog-btn dialog-btn--ghost" id="cancelLogoutBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H5M11 18l-6-6 6-6" />
+            </svg>
+            Batal, Kembali ke Profil
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-stage" id="successStage">
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+        <div class="dialog-top dialog-top--success">
+          <div class="dialog-icon dialog-icon--success">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </div>
+          <h2 id="successTitle">Berhasil Keluar!</h2>
+          <p>Anda telah keluar dari akun IndoTrip. Sampai jumpa di petualangan berikutnya!</p>
+        </div>
+        <div class="dialog-bottom dialog-bottom--center">
+          <p class="redirect-note">
+            <span class="redirect-spinner" aria-hidden="true"></span>
+            Mengalihkan ke halaman utama...
+          </p>
+          <div class="dialog-brand" aria-label="IndoTrip">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="12.4" stroke="currentColor" stroke-width="2.4" />
+              <path d="M21.6 10.4 18.2 18.2 10.4 21.6 13.8 13.8 21.6 10.4Z" fill="currentColor" />
+            </svg>
+            <span>Indo<span>Trip</span></span>
+          </div>
+          <a href="login.html" class="dialog-btn dialog-btn--primary" id="loginAgainLink">Masuk Kembali</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="bayarModal" tabindex="-1" aria-labelledby="bayarModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bayarModalLabel">Bayar Pemesanan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <p class="pay-subtitle" id="bayarSubtitle">Selesaikan pembayaran untuk melanjutkan pemesananmu.</p>
+
+            <div class="row g-3">
+              <div class="col-md-5">
+                <p class="pay-panel-title">Pilih Metode Pembayaran</p>
+                <div class="pay-methods" id="bayarMetodeList" role="radiogroup" aria-label="Metode pembayaran">
+                  <label class="pay-method is-active">
+                    <input type="radio" name="pay_method" value="transfer_bca" checked />
+                    <span class="pay-method-logo pay-method-logo--bca">BCA</span>
+                    <span class="pay-method-text"><strong>Transfer BCA</strong><small>Transfer bank · verifikasi manual</small></span>
+                    <span class="pay-method-check" aria-hidden="true">&#10003;</span>
+                  </label>
+                  <label class="pay-method">
+                    <input type="radio" name="pay_method" value="qris" />
+                    <span class="pay-method-logo pay-method-logo--qris">QRIS</span>
+                    <span class="pay-method-text"><strong>QRIS</strong><small>Scan dengan aplikasi pembayaran</small></span>
+                    <span class="pay-method-check" aria-hidden="true">&#10003;</span>
+                  </label>
+                  <label class="pay-method">
+                    <input type="radio" name="pay_method" value="gopay_ovo" />
+                    <span class="pay-method-logo pay-method-logo--ewallet">E-Wallet</span>
+                    <span class="pay-method-text"><strong>GoPay / OVO</strong><small>Kirim dana lewat aplikasi</small></span>
+                    <span class="pay-method-check" aria-hidden="true">&#10003;</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+                <div class="pay-panel">
+                  <p class="pay-panel-title">Instruksi Pembayaran</p>
+                  <div id="bayarInstruksi"></div>
+                  <div class="pay-total-row">
+                    <span>Total pembayaran</span>
+                    <strong id="bayarTotal">Rp 0</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form id="bayarForm" class="pay-form" enctype="multipart/form-data" novalidate>
+              <input type="hidden" id="bayarPemesananId" name="pemesanan_id" value="" />
+              <input type="hidden" id="bayarMetode" name="metode_pembayaran" value="transfer_bca" />
+
+              <div class="mb-3">
+                <label for="bayarBukti" class="form-label">Upload Bukti Transfer</label>
+                <input class="form-control" type="file" id="bayarBukti" name="bukti" accept="image/jpeg,image/png,image/webp" required />
+                <div class="form-text">Format JPG, PNG, atau WebP · maksimal 2 MB.</div>
+              </div>
+
+              <div class="pay-preview" id="bayarPreviewWrap" hidden>
+                <img id="bayarPreview" src="" alt="Pratinjau bukti pembayaran" />
+              </div>
+
+              <p class="auth-message" id="bayarError" role="alert" hidden></p>
+
+              <button type="submit" class="auth-primary-btn pay-submit" id="bayarSubmit">Kirim Bukti Pembayaran</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="strukModal" tabindex="-1" aria-labelledby="strukModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header struk-modal-header">
+            <h5 class="modal-title" id="strukModalLabel">Struk / E-Tiket</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <div class="struk-paper" id="strukContent"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="dialog-btn dialog-btn--ghost struk-btn" data-bs-dismiss="modal">Tutup</button>
+            <button type="button" class="dialog-btn dialog-btn--primary struk-btn" id="strukPrint">Cetak / Simpan PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pay-toast" id="payToast" role="status" aria-live="polite" hidden>
+      <span class="pay-toast-icon" aria-hidden="true">&#10003;</span>
+      <span id="payToastText"></span>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="brand footer-logo" aria-label="IndoTrip — Beranda">
+            <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="12.4" stroke="currentColor" stroke-width="2.4" />
+              <path d="M21.6 10.4 18.2 18.2 10.4 21.6 13.8 13.8 21.6 10.4Z" fill="currentColor" />
+            </svg>
+            <span class="brand-name">Indo<span class="brand-trip">Trip</span></span>
+          </a>
+          <p class="footer-desc">Panduan wisata lengkap untuk menjelajahi keindahan alam, budaya, dan kuliner di seluruh pelosok Nusantara.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eksplorasi</h4>
+          <a href="detail-destinasi.html?id=taman-nasional-komodo">Flores</a>
+          <a href="detail-destinasi.html?id=piaynemo">Papua</a>
+          <a href="detail-destinasi.html?id=candi-borobudur">Magelang</a>
+          <a href="detail-destinasi.html?id=gunung-bromo">Probolinggo</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Perusahaan</h4>
+          <a href="tentang.html">Tentang Kami</a>
+          <a href="kontak.html">Hubungi Kami</a>
+        </div>
+
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2026 IndoTrip. Hak Cipta Dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

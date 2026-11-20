@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Admin — IndoTrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout" id="adminLayout">
+
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Navigasi panel admin">
+      <div class="admin-sidebar-brand">
+        <span class="admin-sidebar-logo" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="12.4" stroke="currentColor" stroke-width="2.2" />
+            <path d="M21.6 10.4 18.2 18.2 10.4 21.6 13.8 13.8 21.6 10.4Z" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="admin-sidebar-brand-text">
+          <strong>Indo<span>Trip</span></strong>
+          <small>ADMIN PANEL</small>
+        </span>
+      </div>
+
+      <div class="admin-sidebar-scroll">
+        <nav class="admin-nav">
+          <p class="admin-nav-heading">MENU UTAMA</p>
+
+          <button type="button" class="admin-nav-link is-active" data-target="tab-dashboard-tab">
+            <span class="admin-nav-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" />
+              </svg>
+            </span>
+            <span class="admin-nav-label">Dashboard / Ringkasan</span>
+          </button>
+
+          <button type="button" class="admin-nav-link" data-target="tab-verifikasi-tab">
+            <span class="admin-nav-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" />
+              </svg>
+            </span>
+            <span class="admin-nav-label">Verifikasi Pembayaran</span>
+            <span class="admin-nav-count" id="navVerifikasi">0</span>
+          </button>
+
+          <button type="button" class="admin-nav-link" data-target="tab-destinasi-tab">
+            <span class="admin-nav-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" /><circle cx="12" cy="10" r="2.4" />
+              </svg>
+            </span>
+            <span class="admin-nav-label">Destinasi &amp; Kuliner</span>
+          </button>
+
+          <button type="button" class="admin-nav-link" data-target="tab-penginapan-tab">
+            <span class="admin-nav-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 20V6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14M15 10h5a1 1 0 0 1 1 1v9M2 20h20M7 9h2M7 13h2M7 17h2M18 14h1M18 18h1" />
+              </svg>
+            </span>
+            <span class="admin-nav-label">Hotel &amp; Penginapan</span>
+          </button>
+
+          <button type="button" class="admin-nav-link" data-target="tab-kontak-tab">
+            <span class="admin-nav-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z" />
+              </svg>
+            </span>
+            <span class="admin-nav-label">Pesan Kontak</span>
+            <span class="admin-nav-count" id="navKontak">0</span>
+          </button>
+
+          <p class="admin-nav-heading">LAINNYA</p>
+
+          <a class="admin-nav-link" href="index.html" target="_blank" rel="noopener noreferrer">
+            <span class="admin-nav-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6M10 14 21 3" />
+              </svg>
+            </span>
+            <span class="admin-nav-label">Lihat Web User</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="admin-sidebar-bottom">
+        <div class="admin-sidebar-divider"></div>
+        <button type="button" class="admin-nav-link admin-nav-link--logout" id="adminLogout">
+          <span class="admin-nav-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+            </svg>
+          </span>
+          <span class="admin-nav-label">Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="admin-main-wrap">
+
+      <header class="admin-topbar">
+        <button type="button" class="admin-mobile-toggle" id="adminMenuToggle" aria-label="Buka menu navigasi">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <div class="admin-topbar-heading">
+          <h1 id="adminPageTitle">Dashboard / Ringkasan</h1>
+          <p id="adminPageSubtitle">Ringkasan aktivitas IndoTrip hari ini.</p>
+        </div>
+
+        <div class="admin-topbar-user">
+          <span class="admin-user-avatar" id="adminAvatar">A</span>
+          <span class="admin-user-meta">
+            <strong id="adminUserName">Admin</strong>
+            <small id="adminUserRole">Administrator</small>
+          </span>
+        </div>
+      </header>
+
+      <main class="admin-content">
+
+        <div class="admin-gate" id="adminGate">
+          <span class="admin-spinner" aria-hidden="true"></span>
+          <p>Memverifikasi akses admin...</p>
+        </div>
+
+        <div id="adminApp" hidden>
+
+          <ul class="nav nav-tabs admin-tabs" role="tablist" aria-hidden="true">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-dashboard-tab" data-bs-toggle="tab" data-bs-target="#tab-dashboard" type="button" role="tab" aria-controls="tab-dashboard" aria-selected="true">Dashboard</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-verifikasi-tab" data-bs-toggle="tab" data-bs-target="#tab-verifikasi" type="button" role="tab" aria-controls="tab-verifikasi" aria-selected="false">Verifikasi</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-destinasi-tab" data-bs-toggle="tab" data-bs-target="#tab-destinasi" type="button" role="tab" aria-controls="tab-destinasi" aria-selected="false">Destinasi</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-penginapan-tab" data-bs-toggle="tab" data-bs-target="#tab-penginapan" type="button" role="tab" aria-controls="tab-penginapan" aria-selected="false">Penginapan</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-kontak-tab" data-bs-toggle="tab" data-bs-target="#tab-kontak" type="button" role="tab" aria-controls="tab-kontak" aria-selected="false">Kontak</button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+
+            <div class="tab-pane fade show active admin-tab-body" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-tab">
+              <section class="admin-welcome">
+                <div>
+                  <span class="admin-eyebrow">IndoTrip · Back Office</span>
+                  <h2>Selamat datang di Panel Admin</h2>
+                  <p>Kelola verifikasi pembayaran, konten destinasi &amp; penginapan, serta pesan traveller dalam satu tempat.</p>
+                </div>
+                <div class="admin-welcome-actions">
+                  <button type="button" class="admin-btn admin-btn--acc" data-goto="tab-verifikasi-tab">Periksa Pembayaran</button>
+                  <a class="admin-btn admin-btn--ghost" href="index.html" target="_blank" rel="noopener noreferrer">Lihat Web User</a>
+                </div>
+              </section>
+
+              <section class="admin-stats" aria-label="Statistik admin">
+                <article class="admin-stat admin-stat--orders">
+                  <span class="admin-stat-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" />
+                      <path d="M14 2v6h6M9 13h6M9 17h6" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="admin-stat-label">Total Pesanan</p>
+                    <strong class="admin-stat-value" id="statTotal">0</strong>
+                  </div>
+                </article>
+
+                <article class="admin-stat admin-stat--verify">
+                  <span class="admin-stat-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="admin-stat-label">Perlu Verifikasi</p>
+                    <strong class="admin-stat-value" id="statVerifikasi">0</strong>
+                  </div>
+                </article>
+
+                <article class="admin-stat admin-stat--income">
+                  <span class="admin-stat-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 6h18v12H3zM3 10h18M7 15h3" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="admin-stat-label">Pendapatan Terverifikasi</p>
+                    <strong class="admin-stat-value admin-stat-value--money" id="statPendapatan">Rp 0</strong>
+                  </div>
+                </article>
+
+                <article class="admin-stat admin-stat--message">
+                  <span class="admin-stat-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="admin-stat-label">Pesan Baru</p>
+                    <strong class="admin-stat-value" id="statPesan">0</strong>
+                  </div>
+                </article>
+              </section>
+
+              <section class="admin-panel" aria-label="Akses cepat">
+                <div class="admin-panel-head">
+                  <div>
+                    <h2 class="admin-panel-title">Akses Cepat</h2>
+                    <p class="admin-panel-desc">Pilih menu untuk mulai bekerja.</p>
+                  </div>
+                </div>
+                <div class="admin-quick-grid">
+                  <button type="button" class="admin-quick" data-goto="tab-verifikasi-tab">
+                    <span class="admin-quick-icon">✓</span>
+                    <strong>Verifikasi Pembayaran</strong>
+                    <small>ACC atau tolak bukti transfer traveller</small>
+                  </button>
+                  <button type="button" class="admin-quick" data-goto="tab-destinasi-tab">
+                    <span class="admin-quick-icon">◎</span>
+                    <strong>Destinasi &amp; Kuliner</strong>
+                    <small>Tambah, edit, atau hapus destinasi</small>
+                  </button>
+                  <button type="button" class="admin-quick" data-goto="tab-penginapan-tab">
+                    <span class="admin-quick-icon">▤</span>
+                    <strong>Hotel &amp; Penginapan</strong>
+                    <small>Kelola data akomodasi</small>
+                  </button>
+                  <button type="button" class="admin-quick" data-goto="tab-kontak-tab">
+                    <span class="admin-quick-icon">✉</span>
+                    <strong>Pesan Kontak</strong>
+                    <small>Tandai dibaca atau dibalas</small>
+                  </button>
+                </div>
+              </section>
+            </div>
+
+            <div class="tab-pane fade admin-tab-body" id="tab-verifikasi" role="tabpanel" aria-labelledby="tab-verifikasi-tab">
+              <div class="admin-toolbar">
+                <div class="admin-toolbar-group">
+                  <label class="admin-toolbar-label" for="statusFilter">Filter status</label>
+                  <select class="form-select" id="statusFilter">
+                    <option value="">Semua Status</option>
+                    <option value="menunggu">Menunggu pembayaran</option>
+                    <option value="menunggu_verifikasi">Menunggu verifikasi</option>
+                    <option value="dibayar">Dibayar</option>
+                    <option value="ditolak">Ditolak</option>
+                    <option value="selesai">Selesai</option>
+                    <option value="dibatalkan">Dibatalkan</option>
+                  </select>
+                </div>
+                <button type="button" class="admin-btn admin-btn--ghost" id="refreshPemesanan">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 11a8 8 0 1 0-.6 4M20 4v7h-7" />
+                  </svg>
+                  Muat Ulang
+                </button>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="table admin-table align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col">Kode Booking</th>
+                      <th scope="col">Pemesan</th>
+                      <th scope="col">Item &amp; Jenis</th>
+                      <th scope="col">Tanggal &amp; Jumlah</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Metode</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pemesananBody">
+                    <tr><td colspan="8" class="admin-empty">Memuat data pemesanan...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-pane fade admin-tab-body" id="tab-destinasi" role="tabpanel" aria-labelledby="tab-destinasi-tab">
+              <div class="admin-toolbar">
+                <button type="button" class="admin-btn admin-btn--add" id="tambahDestinasi">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  Tambah Destinasi / Kuliner
+                </button>
+                <button type="button" class="admin-btn admin-btn--ghost" id="refreshDestinasi">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 11a8 8 0 1 0-.6 4M20 4v7h-7" />
+                  </svg>
+                  Muat Ulang
+                </button>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="table admin-table align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col">Foto</th>
+                      <th scope="col">Nama</th>
+                      <th scope="col">Lokasi</th>
+                      <th scope="col">Pulau</th>
+                      <th scope="col">Tipe</th>
+                      <th scope="col">Harga</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="destinasiBody">
+                    <tr><td colspan="7" class="admin-empty">Memuat data destinasi...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-pane fade admin-tab-body" id="tab-penginapan" role="tabpanel" aria-labelledby="tab-penginapan-tab">
+              <div class="admin-toolbar">
+                <button type="button" class="admin-btn admin-btn--add" id="tambahPenginapan">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  Tambah Penginapan
+                </button>
+                <button type="button" class="admin-btn admin-btn--ghost" id="refreshPenginapan">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 11a8 8 0 1 0-.6 4M20 4v7h-7" />
+                  </svg>
+                  Muat Ulang
+                </button>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="table admin-table align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col">Foto</th>
+                      <th scope="col">Nama</th>
+                      <th scope="col">Pulau</th>
+                      <th scope="col">Tipe</th>
+                      <th scope="col">Harga / Malam</th>
+                      <th scope="col">Jarak</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="penginapanBody">
+                    <tr><td colspan="7" class="admin-empty">Memuat data penginapan...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab-pane fade admin-tab-body" id="tab-kontak" role="tabpanel" aria-labelledby="tab-kontak-tab">
+              <div class="admin-toolbar">
+                <div class="admin-toolbar-group">
+                  <label class="admin-toolbar-label" for="kontakFilter">Filter status</label>
+                  <select class="form-select" id="kontakFilter">
+                    <option value="">Semua Status</option>
+                    <option value="baru">Baru</option>
+                    <option value="dibaca">Dibaca</option>
+                    <option value="dibalas">Dibalas</option>
+                  </select>
+                </div>
+                <button type="button" class="admin-btn admin-btn--ghost" id="refreshKontak">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 11a8 8 0 1 0-.6 4M20 4v7h-7" />
+                  </svg>
+                  Muat Ulang
+                </button>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="table admin-table align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nama</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Subjek</th>
+                      <th scope="col">Pesan</th>
+                      <th scope="col">Waktu</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="kontakBody">
+                    <tr><td colspan="7" class="admin-empty">Memuat pesan kontak...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal fade" id="buktiModal" tabindex="-1" aria-labelledby="buktiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header admin-modal-header">
+          <h5 class="modal-title admin-modal-title" id="buktiModalLabel">Bukti Pembayaran</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="admin-modal-note" id="buktiSubtitle"></p>
+          <div class="admin-bukti-wrap" id="buktiWrap">
+            <img id="buktiImage" alt="Foto bukti pembayaran" hidden />
+            <p class="admin-bukti-empty" id="buktiEmpty" hidden>Belum ada bukti pembayaran yang diunggah.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="accModal" tabindex="-1" aria-labelledby="accModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header admin-modal-header">
+          <h5 class="modal-title admin-modal-title" id="accModalLabel">Verifikasi Pembayaran</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="admin-modal-note" id="accSubtitle"></p>
+          <p class="admin-modal-text">Pastikan bukti transfer sudah sesuai sebelum menyetujui pembayaran ini.</p>
+        </div>
+        <div class="modal-footer admin-modal-footer">
+          <button type="button" class="admin-btn admin-btn--ghost" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="admin-btn admin-btn--acc" id="accConfirm">Setujui &amp; Tandai Dibayar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="tolakModal" tabindex="-1" aria-labelledby="tolakModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="tolakForm" novalidate>
+          <div class="modal-header admin-modal-header">
+            <h5 class="modal-title admin-modal-title" id="tolakModalLabel">Tolak Pembayaran</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <p class="admin-modal-note" id="tolakSubtitle"></p>
+            <label class="admin-field-label" for="alasanPenolakan">Alasan Penolakan</label>
+            <textarea class="admin-textarea" id="alasanPenolakan" rows="4" placeholder="Contoh: Bukti transfer tidak terbaca, harap unggah ulang." required></textarea>
+            <p class="admin-field-error" id="tolakError" role="alert" hidden></p>
+          </div>
+          <div class="modal-footer admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn--ghost" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="admin-btn admin-btn--tolak" id="tolakConfirm">Tolak Pembayaran</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="destinasiModal" tabindex="-1" aria-labelledby="destinasiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <form id="destinasiForm" novalidate>
+          <div class="modal-header admin-modal-header">
+            <h5 class="modal-title admin-modal-title" id="destinasiModalLabel">Tambah Destinasi / Kuliner</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" name="edit_id" id="destinasiEditId" value="" />
+            <input type="hidden" name="gambar" id="destinasiGambarLama" value="" />
+            <input type="hidden" name="gambar_hero" id="destinasiHeroLama" value="" />
+
+            <p class="admin-field-error admin-form-error" id="destinasiError" role="alert" hidden></p>
+
+            <div class="admin-form-grid">
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="destinasiNama">Nama <span class="admin-required">*</span></label>
+                <input class="admin-input" type="text" id="destinasiNama" name="nama" maxlength="200" required placeholder="Contoh: Pantai Kuta" />
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="destinasiPulau">Pulau</label>
+                <input class="admin-input" type="text" id="destinasiPulau" name="pulau" maxlength="100" placeholder="Contoh: Bali" />
+              </div>
+
+              <div class="admin-form-field admin-form-field--full">
+                <span class="admin-field-label">Tipe (boleh pilih lebih dari satu)</span>
+                <div class="admin-check-list">
+                  <label class="admin-check-item"><input type="checkbox" name="tipe" value="Alam" /> <span>Alam</span></label>
+                  <label class="admin-check-item"><input type="checkbox" name="tipe" value="Budaya" /> <span>Budaya</span></label>
+                  <label class="admin-check-item"><input type="checkbox" name="tipe" value="Pantai" /> <span>Pantai</span></label>
+                  <label class="admin-check-item"><input type="checkbox" name="tipe" value="Kuliner" /> <span>Kuliner</span></label>
+                </div>
+              </div>
+
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="destinasiLokasi">Lokasi <span class="admin-required">*</span></label>
+                <input class="admin-input" type="text" id="destinasiLokasi" name="lokasi" maxlength="200" required placeholder="Contoh: Badung, Bali" />
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="destinasiHarga">Harga (Rp) <span class="admin-required">*</span></label>
+                <input class="admin-input" type="number" id="destinasiHarga" name="harga" min="0" step="1" value="0" required />
+              </div>
+
+              <div class="admin-form-field admin-form-field--full">
+                <label class="admin-field-label" for="destinasiJam">Jam Buka</label>
+                <input class="admin-input" type="text" id="destinasiJam" name="jam" maxlength="100" placeholder="Contoh: 08.00 - 17.00" />
+              </div>
+
+              <div class="admin-form-field admin-form-field--full">
+                <label class="admin-field-label" for="destinasiFoto">Foto Utama</label>
+                <input class="admin-input" type="file" id="destinasiFoto" name="foto" accept="image/jpeg,image/png,image/webp" />
+                <p class="admin-hint">Format JPG, PNG, atau WebP. Maksimal 2 MB. Kosongkan untuk mempertahankan foto lama.</p>
+                <div class="admin-photo-preview" id="destinasiFotoPreview" hidden>
+                  <img id="destinasiFotoPreviewImg" alt="Pratinjau foto destinasi" />
+                </div>
+              </div>
+
+              <div class="admin-form-field admin-form-field--full">
+                <label class="admin-field-label" for="destinasiDeskripsi">Deskripsi</label>
+                <textarea class="admin-textarea" id="destinasiDeskripsi" name="deskripsi" rows="3" placeholder="Ceritakan tentang destinasi ini..."></textarea>
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="destinasiFasilitas">Fasilitas</label>
+                <textarea class="admin-textarea" id="destinasiFasilitas" name="fasilitas" rows="4" placeholder="Satu fasilitas per baris&#10;Contoh: Area parkir&#10;Toilet"></textarea>
+                <p class="admin-hint">Pisahkan setiap fasilitas dengan baris baru atau koma.</p>
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="destinasiTips">Tips</label>
+                <textarea class="admin-textarea" id="destinasiTips" name="tips" rows="4" placeholder="Satu tips per baris&#10;Contoh: Datang pagi hari"></textarea>
+                <p class="admin-hint">Pisahkan setiap tips dengan baris baru atau koma.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn--ghost" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="admin-btn admin-btn--acc" id="destinasiSubmit">Simpan Destinasi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="penginapanModal" tabindex="-1" aria-labelledby="penginapanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <form id="penginapanForm" novalidate>
+          <div class="modal-header admin-modal-header">
+            <h5 class="modal-title admin-modal-title" id="penginapanModalLabel">Tambah Penginapan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" name="edit_id" id="penginapanEditId" value="" />
+            <input type="hidden" name="gambar" id="penginapanGambarLama" value="" />
+            <input type="hidden" name="gambar_hero" id="penginapanHeroLama" value="" />
+
+            <p class="admin-field-error admin-form-error" id="penginapanError" role="alert" hidden></p>
+
+            <div class="admin-form-grid">
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanNama">Nama <span class="admin-required">*</span></label>
+                <input class="admin-input" type="text" id="penginapanNama" name="nama" maxlength="200" required placeholder="Contoh: Kuta Beach Garden Resort" />
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanPulau">Pulau</label>
+                <input class="admin-input" type="text" id="penginapanPulau" name="pulau" maxlength="100" placeholder="Contoh: Bali" />
+              </div>
+
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanTipe">Tipe</label>
+                <select class="admin-input" id="penginapanTipe" name="tipe">
+                  <option value="Hotel">Hotel</option>
+                  <option value="Resort">Resort</option>
+                  <option value="Homestay">Homestay</option>
+                </select>
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanLokasi">Lokasi <span class="admin-required">*</span></label>
+                <input class="admin-input" type="text" id="penginapanLokasi" name="lokasi" maxlength="200" required placeholder="Contoh: Kuta, Bali" />
+              </div>
+
+              <div class="admin-form-field admin-form-field--full">
+                <label class="admin-field-label" for="penginapanAlamat">Alamat Lengkap</label>
+                <input class="admin-input" type="text" id="penginapanAlamat" name="alamat_lengkap" maxlength="300" placeholder="Contoh: Jl. Pantai Kuta No. 12, Badung" />
+              </div>
+
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanJarak">Jarak</label>
+                <input class="admin-input" type="text" id="penginapanJarak" name="jarak" maxlength="150" placeholder="Contoh: 0,3 km dari Pantai Kuta" />
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanHarga">Harga / Malam (Rp) <span class="admin-required">*</span></label>
+                <input class="admin-input" type="number" id="penginapanHarga" name="harga" min="0" step="1" value="0" required />
+              </div>
+
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanCheckIn">Check-in</label>
+                <input class="admin-input" type="text" id="penginapanCheckIn" name="check_in" maxlength="10" placeholder="Contoh: 14:00" />
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanCheckOut">Check-out</label>
+                <input class="admin-input" type="text" id="penginapanCheckOut" name="check_out" maxlength="10" placeholder="Contoh: 12:00" />
+              </div>
+
+              <div class="admin-form-field admin-form-field--full">
+                <label class="admin-field-label" for="penginapanFoto">Foto Utama</label>
+                <input class="admin-input" type="file" id="penginapanFoto" name="foto" accept="image/jpeg,image/png,image/webp" />
+                <p class="admin-hint">Format JPG, PNG, atau WebP. Maksimal 2 MB. Kosongkan untuk mempertahankan foto lama.</p>
+                <div class="admin-photo-preview" id="penginapanFotoPreview" hidden>
+                  <img id="penginapanFotoPreviewImg" alt="Pratinjau foto penginapan" />
+                </div>
+              </div>
+
+              <div class="admin-form-field admin-form-field--full">
+                <label class="admin-field-label" for="penginapanDeskripsi">Deskripsi</label>
+                <textarea class="admin-textarea" id="penginapanDeskripsi" name="deskripsi" rows="3" placeholder="Ceritakan tentang penginapan ini..."></textarea>
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanFasilitas">Fasilitas</label>
+                <textarea class="admin-textarea" id="penginapanFasilitas" name="fasilitas" rows="4" placeholder="Satu fasilitas per baris&#10;Contoh: Kolam renang&#10;Wi-Fi gratis"></textarea>
+                <p class="admin-hint">Pisahkan setiap fasilitas dengan baris baru atau koma.</p>
+              </div>
+              <div class="admin-form-field">
+                <label class="admin-field-label" for="penginapanTips">Tips</label>
+                <textarea class="admin-textarea" id="penginapanTips" name="tips" rows="4" placeholder="Satu tips per baris&#10;Contoh: Pesan lebih awal"></textarea>
+                <p class="admin-hint">Pisahkan setiap tips dengan baris baru atau koma.</p>
+              </div>
+              <div class="admin-form-field admin-form-field--full">
+                <label class="admin-field-label" for="penginapanKebijakan">Kebijakan</label>
+                <textarea class="admin-textarea" id="penginapanKebijakan" name="kebijakan" rows="3" placeholder="Satu kebijakan per baris&#10;Contoh: Check-in mulai 14:00&#10;Dilarang merokok"></textarea>
+                <p class="admin-hint">Pisahkan setiap kebijakan dengan baris baru atau koma.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn--ghost" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="admin-btn admin-btn--acc" id="penginapanSubmit">Simpan Penginapan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header admin-modal-header">
+          <h5 class="modal-title admin-modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="admin-modal-text" id="deleteSubtitle"></p>
+          <p class="admin-modal-text">Tindakan ini tidak dapat dibatalkan.</p>
+          <p class="admin-field-error" id="deleteError" role="alert" hidden></p>
+        </div>
+        <div class="modal-footer admin-modal-footer">
+          <button type="button" class="admin-btn admin-btn--ghost" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="admin-btn admin-btn--tolak" id="deleteConfirm">Hapus</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-toast" id="adminToast" role="status" aria-live="polite" hidden>
+    <span class="admin-toast-icon" aria-hidden="true">✓</span>
+    <span id="adminToastText"></span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.vscode/
+opencode.json
+*.txt
+referensi/
+
+uploads/bukti/*
+!uploads/bukti/.gitkeep

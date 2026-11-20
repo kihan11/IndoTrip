@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Penginapan — IndoTrip</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="IndoTrip — Beranda">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="12.4" stroke="currentColor" stroke-width="2.2" />
+          <path d="M21.6 10.4 18.2 18.2 10.4 21.6 13.8 13.8 21.6 10.4Z" fill="currentColor" />
+        </svg>
+        <span class="brand-name">Indo<span class="brand-trip">Trip</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="destinasi.html">Destinasi</a>
+        <a href="penginapan.html" class="active">Penginapan</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="btn-login">Masuk</a>
+        <a href="signup.html" class="btn-register">Daftar</a>
+        <a href="profile.html" class="btn-profile" aria-label="Profil">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21a8 8 0 0 1 16 0" />
+          </svg>
+        </a>
+      </div>
+
+      <button class="nav-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Buka menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="collapse mobile-nav" id="mobileNav">
+      <nav aria-label="Navigasi seluler">
+        <a href="destinasi.html">Destinasi</a>
+        <a href="penginapan.html">Penginapan</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="login.html" class="mobile-login">Masuk</a>
+        <a href="signup.html" class="mobile-login">Daftar</a>
+        <a href="profile.html" class="mobile-login">Profil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-main">
+
+    <div class="dd-notfound" id="dp-notfound" hidden>
+      <div class="dd-notfound-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </svg>
+      </div>
+      <h1>Penginapan tidak ditemukan</h1>
+      <p id="dp-notfound-message">Parameter <code>id</code> tidak cocok dengan data yang tersedia. Coba pilih penginapan dari halaman daftar.</p>
+      <a href="penginapan.html" class="dd-notfound-link">Kembali ke Penginapan</a>
+    </div>
+
+    <div id="dp-content">
+
+      <section class="dp-hero" id="dp-hero" role="img" aria-label="Foto penginapan">
+        <div class="dp-hero-shade"></div>
+        <a href="penginapan.html" class="dp-back">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          Penginapan
+        </a>
+      </section>
+
+      <div class="dd-wrap">
+
+        <section class="dp-hero-card" aria-labelledby="dp-nama">
+          <div class="dp-card-main">
+            <div class="dd-tags" id="dp-tags"></div>
+            <h1 class="dp-title" id="dp-nama">—</h1>
+            <p class="dp-alamat">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span id="dp-alamat"></span>
+            </p>
+            <div class="dp-meta">
+              <span class="dp-meta-rating">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                </svg>
+                <strong id="dp-rating">—</strong>
+                <span id="dp-ulasan"></span>
+              </span>
+              <span class="dp-meta-time">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+                Check-In <span id="dp-checkin-card"></span> · Check-out <span id="dp-checkout-card"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="dp-card-side">
+            <div class="dp-price-card">
+              <span class="dp-price-label">Mulai dari</span>
+              <strong class="dp-price" id="dp-harga"></strong>
+              <span class="dp-price-note">/ malam</span>
+            </div>
+            <a class="dp-maps" id="dp-maps" href="#" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21 3 3 10.5l7.3 3.2L13.5 21 21 3Z" />
+              </svg>
+              Buka di Maps
+            </a>
+            <button type="button" class="dd-order-btn" id="dpOrderBtn" hidden>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 8h16l-1.2 11a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8L4 8Z" />
+                <path d="M9 8V6a3 3 0 0 1 6 0v2M4 12h16" />
+              </svg>
+              Pesan Sekarang
+            </button>
+          </div>
+        </section>
+
+        <p class="dd-section-title">Informasi</p>
+
+        <div class="dd-info-grid">
+          <article class="dd-info-card">
+            <span class="dd-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+            </span>
+            <h2 class="dd-info-label">Check-In</h2>
+            <p class="dd-info-value" id="dp-checkin">—</p>
+          </article>
+
+          <article class="dd-info-card">
+            <span class="dd-info-icon pink">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3-2" />
+              </svg>
+            </span>
+            <h2 class="dd-info-label">Check-Out</h2>
+            <p class="dd-info-value" id="dp-checkout">—</p>
+          </article>
+
+          <article class="dd-info-card">
+            <span class="dd-info-icon orange">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+              </svg>
+            </span>
+            <h2 class="dd-info-label">Rating</h2>
+            <p class="dd-info-value" id="dp-rating-info">—</p>
+          </article>
+        </div>
+
+        <section class="dd-panel dd-tentang">
+          <h2 id="dp-tentang-judul">Tentang</h2>
+          <p id="dp-deskripsi"></p>
+        </section>
+
+        <div class="dd-duo">
+          <section class="dd-panel">
+            <h2 class="dd-panel-head">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              Fasilitas
+            </h2>
+            <ul class="dd-list dd-list-check" id="dp-fasilitas"></ul>
+          </section>
+
+          <section class="dd-panel">
+            <h2 class="dd-panel-head orange">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 11v5M12 8h.01" />
+              </svg>
+              Tips Menginap
+            </h2>
+            <ul class="dd-list dd-list-tips" id="dp-tips"></ul>
+          </section>
+        </div>
+
+        <section class="dd-panel dd-kebijakan">
+          <h2 class="dd-panel-head">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 11v5M12 8h.01" />
+            </svg>
+            Kebijakan Penginapan
+          </h2>
+          <ul class="dd-list dd-list-policy" id="dp-kebijakan"></ul>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="dpOrderModal" tabindex="-1" aria-labelledby="dpOrderModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content dd-order-modal">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title h5" id="dpOrderModalTitle">Pesan Penginapan</h2>
+            <div class="dd-order-steps" aria-label="Langkah pemesanan">
+              <span class="dd-step is-active" id="dpStep1Label"><span class="dd-step-num">1</span> Detail Pesanan</span>
+              <span class="dd-step-line" aria-hidden="true"></span>
+              <span class="dd-step" id="dpStep2Label"><span class="dd-step-num">2</span> Bayar Langsung</span>
+            </div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="dd-order-subtitle" id="dpOrderSubtitle">—</p>
+          <p class="auth-message auth-message--error" id="dpOrderError" role="alert" hidden></p>
+
+          <div id="dpOrderStep1">
+            <form id="dpOrderFormStep1" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label" for="dpOrderTanggal">Tanggal Check-In</label>
+                  <input class="form-control" type="date" id="dpOrderTanggal" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="dpOrderJumlah">Jumlah Malam</label>
+                  <input class="form-control" type="number" id="dpOrderJumlah" min="1" max="50" value="1" required />
+                </div>
+              </div>
+              <div class="mb-3 mt-3">
+                <label class="form-label" for="dpOrderCatatan">Catatan (opsional)</label>
+                <textarea class="form-control" id="dpOrderCatatan" rows="2" placeholder="Contoh: kamar bebas rokok, check-in terlambat"></textarea>
+              </div>
+              <div class="dd-order-breakdown" id="dpOrderBreakdown">
+                <div class="dd-break-row"><span>Harga / malam</span><strong id="dpBreakSatuan">Rp 0</strong></div>
+                <div class="dd-break-row"><span>Jumlah malam</span><strong id="dpBreakJumlah">1</strong></div>
+                <div class="dd-break-total"><span>Total pembayaran</span><strong id="dpBreakTotal">Rp 0</strong></div>
+              </div>
+            </form>
+          </div>
+
+          <div id="dpOrderStep2" hidden>
+            <div class="row g-3">
+              <div class="col-md-5">
+                <p class="pay-panel-title">Pilih Metode Pembayaran</p>
+                <div class="pay-methods" id="dpPayMethodList" role="radiogroup" aria-label="Metode pembayaran">
+                  <label class="pay-method is-active">
+                    <input type="radio" name="dp_pay_method" value="transfer_bca" checked />
+                    <span class="pay-method-logo pay-method-logo--bca">BCA</span>
+                    <span class="pay-method-text"><strong>Transfer BCA</strong><small>Transfer bank · verifikasi manual</small></span>
+                    <span class="pay-method-check" aria-hidden="true">&#10003;</span>
+                  </label>
+                  <label class="pay-method">
+                    <input type="radio" name="dp_pay_method" value="qris" />
+                    <span class="pay-method-logo pay-method-logo--qris">QRIS</span>
+                    <span class="pay-method-text"><strong>QRIS</strong><small>Scan dengan aplikasi pembayaran</small></span>
+                    <span class="pay-method-check" aria-hidden="true">&#10003;</span>
+                  </label>
+                  <label class="pay-method">
+                    <input type="radio" name="dp_pay_method" value="gopay_ovo" />
+                    <span class="pay-method-logo pay-method-logo--ewallet">E-Wallet</span>
+                    <span class="pay-method-text"><strong>GoPay / OVO</strong><small>Kirim dana lewat aplikasi</small></span>
+                    <span class="pay-method-check" aria-hidden="true">&#10003;</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="pay-panel">
+                  <p class="pay-panel-title">Instruksi Pembayaran</p>
+                  <div id="dpPayInstruksi"></div>
+                  <div class="pay-total-row"><span>Total tagihan</span><strong id="dpPayTotal">Rp 0</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <form id="dpOrderFormBayar" class="pay-form" enctype="multipart/form-data" novalidate>
+              <input type="hidden" id="dpPayMetode" name="metode_pembayaran" value="transfer_bca" />
+              <div id="dpPayUploadWrap">
+                <div class="mb-3">
+                  <label for="dpPayBukti" class="form-label">Upload Bukti Transfer</label>
+                  <input class="form-control" type="file" id="dpPayBukti" name="bukti" accept="image/jpeg,image/png,image/webp" />
+                  <div class="form-text">Format JPG, PNG, atau WebP · maksimal 2 MB.</div>
+                </div>
+                <div class="pay-preview" id="dpPayPreviewWrap" hidden>
+                  <img id="dpPayPreview" src="" alt="Pratinjau bukti pembayaran" />
+                </div>
+              </div>
+              <div class="dd-order-gratis" id="dpPayGratis" hidden>
+                Penginapan ini gratis — tidak perlu upload bukti pembayaran.
+              </div>
+            </form>
+          </div>
+
+          <div class="dd-order-success" id="dpOrderSuccess" hidden>
+            <div class="dd-order-success-icon">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3>Pemesanan berhasil!</h3>
+            <p>Simpan kode booking berikut untuk referensi Anda.</p>
+            <p class="dd-order-kode" id="dpOrderKode">—</p>
+            <p class="dd-order-total" id="dpOrderTotal">—</p>
+            <a href="profile.html#riwayat" class="empty-cta">Lihat Status di Riwayat Pemesanan</a>
+            <p class="dd-order-next" id="dpOrderNextNote">Status pembayaran dapat dilihat di tab Riwayat Pemesanan pada halaman profilmu.</p>
+          </div>
+        </div>
+        <div class="modal-footer" id="dpOrderFooter">
+          <button type="button" class="btn btn-outline-secondary" id="dpOrderBack" hidden>Kembali</button>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" id="dpOrderBatal">Batal</button>
+          <button type="button" class="dd-order-submit" id="dpOrderNext">Lanjut ke Pembayaran</button>
+          <button type="submit" form="dpOrderFormBayar" class="dd-order-submit" id="dpOrderSubmit" hidden>Bayar &amp; Kirim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="brand footer-logo" aria-label="IndoTrip — Beranda">
+            <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="12.4" stroke="currentColor" stroke-width="2.4" />
+              <path d="M21.6 10.4 18.2 18.2 10.4 21.6 13.8 13.8 21.6 10.4Z" fill="currentColor" />
+            </svg>
+            <span class="brand-name">Indo<span class="brand-trip">Trip</span></span>
+          </a>
+          <p class="footer-desc">Panduan wisata lengkap untuk menjelajahi keindahan alam, budaya, dan kuliner di seluruh pelosok Nusantara.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eksplorasi</h4>
+          <a href="detail-destinasi.html?id=taman-nasional-komodo">Flores</a>
+          <a href="detail-destinasi.html?id=piaynemo">Papua</a>
+          <a href="detail-destinasi.html?id=candi-borobudur">Magelang</a>
+          <a href="detail-destinasi.html?id=gunung-bromo">Probolinggo</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Perusahaan</h4>
+          <a href="tentang.html">Tentang Kami</a>
+          <a href="kontak.html">Hubungi Kami</a>
+        </div>
+
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2026 IndoTrip. Hak Cipta Dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/pemesanan.js"></script>
+  <script src="js/detail-penginapan.js"></script>
+</body>
+</html>
